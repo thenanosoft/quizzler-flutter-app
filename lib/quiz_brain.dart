@@ -22,7 +22,7 @@ class QuizBrain {
   ];
 
   int getTotalQuestions() {
-    return _questions.length;
+    return _questions.length - 1;
   }
 
   void nextQuestion() {
