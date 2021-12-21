@@ -12,6 +12,7 @@ class Quizzler extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
         backgroundColor: Colors.grey[900],
         body: const SafeArea(
@@ -43,10 +44,11 @@ class _QuizPageState extends State<QuizPage> {
     setState(() {
       if (quizBrain.isFinished()) {
         Alert(
-                context: context,
-                title: 'Score: $correctScore / $totalQuestions',
-                desc: 'You\'ve reached the end of the quiz.')
-            .show();
+          context: context,
+          title: 'Score: $correctScore / $totalQuestions',
+          desc: 'You\'ve reached the end of the quiz.',
+        ).show();
+
         quizBrain.reset();
         correctScore = 0;
         scoreKeeper = [];
@@ -61,6 +63,7 @@ class _QuizPageState extends State<QuizPage> {
             Icon(Icons.close, color: Colors.red),
           );
         }
+
         quizBrain.nextQuestion();
       }
     });
@@ -117,8 +120,11 @@ class _QuizPageState extends State<QuizPage> {
             ),
           ),
         ),
-        Row(
-          children: scoreKeeper,
+        SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          child: Row(
+            children: scoreKeeper,
+          ),
         )
       ],
     );
