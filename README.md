@@ -16,7 +16,8 @@ For help getting started with Flutter, view our
 samples, guidance on mobile development, and a full API reference.
 
 ### Reference
-Instructor: Angela Yu
+Instructor: @angelabauer
+
 [london app brewery](https://github.com/londonappbrewery)
 
 ### Screenshots
